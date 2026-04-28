@@ -1,0 +1,6 @@
+PyYAML # For parsing YAML configuration files
+psutil # For monitoring system resources
+Flask # For creating a web interface for the detector
+requests # For making HTTP requests to external APIs
+
+

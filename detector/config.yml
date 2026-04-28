@@ -1,0 +1,40 @@
+# detector/config.yml
+
+# --- Detection thresholds ---
+# These settings define what "suspicious" looks like.
+z_threshold: 3.0          # How many "steps" away from the average is too weird? (Uses math called a Z-score)
+spike_factor: 5.0         # If traffic suddenly becomes 5x higher than normal, trigger an alert.
+ip_threshold: 20          # If a single user (IP) asks for 20 things in 1 minute, they are moving too fast.
+global_threshold: 50      # If the whole server gets 50 requests in 1 minute, it might be under attack.
+
+# --- Error surge detection ---
+# This watches for broken pages (404s or 500 errors).
+error_multiplier: 3.0     # If errors are 3x higher than normal, make the security rules much stricter.
+
+# --- Ban schedule (minutes) ---
+# How long we kick someone out for.
+ban_durations: [10, 30, 120, -1]   # 1st offense: 10m, 2nd: 30m, 3rd: 2hrs, 4th: Forever (-1).
+
+# --- Unbanner schedule (Seconds) ---
+# This is the same as above, but written in seconds for the computer to read easily.
+unban_schedule: [600, 1800, 7200]
+
+# --- Slack integration ---
+# How the program "talks" to you.
+slack_webhook: 
+cooldown: 30              # Don't spam Slack; wait at least 30 seconds between sending new alerts.
+
+# --- Dashboard ---
+# Settings for the visual control panel.
+dashboard_port: 8081      # The "channel" or address on your computer where the dashboard lives.
+refresh_interval: 3       # Update the charts and numbers every 3 seconds.
+show_system_metrics: true # Turn on the display for CPU and RAM usage.
+show_uptime: true         # Show how long the security system has been running.
+
+# --- Baseline ---
+# How the system learns what "Normal" traffic looks like.
+baseline_window: 1800     # Look at the last 30 minutes (1800 seconds) to determine the average.
+recalc_interval: 60       # Update the average every 60 seconds.
+
+show_system_metrics: true # (Duplicate setting) whether to display CPU/memory usage
+show_uptime: true         # (Duplicate setting) whether to display uptime

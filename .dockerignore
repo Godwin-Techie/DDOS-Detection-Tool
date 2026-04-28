@@ -1,0 +1,45 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+env/
+.venv/
+
+# Ignore logs
+*.log
+logs/
+var/log/
+
+# Ignore local development files
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Ignore Docker-related leftovers
+Dockerfile~
+docker-compose.override.yml
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore test coverage and build artifacts
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Ignore notebooks if not needed
+*.ipynb
+
+# Ignore requirements lock files if you only use requirements.txt
+Pipfile
+Pipfile.lock
+poetry.lock
+
